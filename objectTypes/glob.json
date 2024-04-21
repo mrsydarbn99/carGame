@@ -1,0 +1,80 @@
+{
+	"name": "glob",
+	"plugin-id": "Sprite",
+	"sid": 926141137198409,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "dist",
+			"type": "number",
+			"desc": "Distance travelled, each 10 seconds, roadSpeed gets speedier",
+			"show": true,
+			"sid": 701824474938224
+		},
+		{
+			"name": "roadSpeed",
+			"type": "number",
+			"desc": "The scrolling speed for the road; base for the speed of the cars",
+			"show": true,
+			"sid": 224921649982246
+		},
+		{
+			"name": "roadSpeedMod",
+			"type": "number",
+			"desc": "A modifier to the speed to help prevent impossible moves",
+			"show": true,
+			"sid": 869926631537032
+		},
+		{
+			"name": "Score",
+			"type": "number",
+			"desc": "Score based on the length of drive without crash",
+			"show": true,
+			"sid": 648450048142742
+		},
+		{
+			"name": "Crashed",
+			"type": "boolean",
+			"desc": "Player is not crashed, game is going on",
+			"show": true,
+			"sid": 146593595549590
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 292226482205659
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7811079,
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 110076488998265,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

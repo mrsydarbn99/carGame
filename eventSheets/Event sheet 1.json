@@ -1,0 +1,195 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Score",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 773072051700404
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 664171674250590,
+					"parameters": {
+						"interval-seconds": "3"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 762997665696461,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 837720526206397,
+							"parameters": {
+								"object": "glob"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "glob",
+							"sid": 427049402812138,
+							"parameters": {
+								"object": "Star",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Star",
+							"sid": 988147872759616,
+							"parameters": {
+								"frame-number": "int(random(0,2))"
+							}
+						}
+					],
+					"sid": 330053399757445
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 819091257782728
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "txtScore",
+					"sid": 285783222253102,
+					"parameters": {
+						"text": "\"Score: \" & Score"
+					}
+				}
+			],
+			"sid": 620293586313247
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Star",
+					"sid": 635125608984298,
+					"parameters": {
+						"object": "Player"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Star",
+					"sid": 488464612411864
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 124318164514896,
+					"parameters": {
+						"variable": "Score",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 708408479640273
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 685528838811044,
+					"parameters": {
+						"interval-seconds": "4"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 694997016121800,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 251826054624369,
+							"parameters": {
+								"object": "glob"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "glob",
+							"sid": 336319833331527,
+							"parameters": {
+								"object": "Obstacle",
+								"layer": "1",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Obstacle",
+							"sid": 650281156975210,
+							"parameters": {
+								"frame-number": "int(random(0,2))"
+							}
+						}
+					],
+					"sid": 855382122636831
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 340587468166308,
+					"parameters": {
+						"object": "Obstacle"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 332223161649406,
+					"parameters": {
+						"layout": "Game Over"
+					}
+				}
+			],
+			"sid": 584889192404039
+		}
+	],
+	"sid": 506658052262500
+}
